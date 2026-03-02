@@ -1,0 +1,65 @@
+.employeesPage {
+  padding: 32px;
+}
+
+.pageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.headerRight {
+  display: flex;
+  gap: 16px;
+}
+
+.pageTitle {
+  font-weight: 600;
+}
+
+.addButton {
+  border-radius: 10px;
+  text-transform: none;
+}
+
+.tableWrapper {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.dialogTitleBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dialogTitle {
+  font-weight: 600;
+}
+
+.closeButton {
+  color: #757575;
+}
+
+.dialogContent {
+  padding: 0 32px 32px 32px;
+}
+
+.confirmText {
+  margin-bottom: 24px;
+}
+
+.deleteActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.detailContent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
