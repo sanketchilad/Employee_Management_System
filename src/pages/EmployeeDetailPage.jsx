@@ -51,7 +51,7 @@ const EmployeeDetailPage = ({
           </Typography>
 
           <Typography>
-            Country:  {countries.find((c) => c.country === employee.country)?.country || employee.country}
+            Country:  {countries.find((c) => c.id === employee.country)?.country || employee.country}
           </Typography>
 
           <Typography>

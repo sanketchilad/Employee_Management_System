@@ -27,10 +27,16 @@ const EmployeeForm = ({ onSubmit, employee, countries }) => {
 
   // Pre-populate form when editing
   useEffect(() => {
-    if (employee) {
-      reset(employee);
-    }
-  }, [employee, reset]);
+  if (employee && countries.length) {
+    const countryName =
+      countries.find((c) => c.id === employee.country)?.country || employee.country;;
+
+    reset({
+      ...employee,
+      country: countryName,
+    });
+  }
+  }, [employee, countries, reset]);
 
   return (
     <Paper elevation={0} sx={{ p: 3 }}>

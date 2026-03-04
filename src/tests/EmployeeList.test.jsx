@@ -20,10 +20,13 @@ describe("EmployeeList", () => {
   ];
 
   test("renders employee data", () => {
+    const countries = [
+      { id: 101, country: "India" },
+    ];
     render(
       <EmployeeList
         employees={employees}
-        countries={[]}
+        countries={countries}
         onEdit={jest.fn()}
         onDelete={jest.fn()}
       />

@@ -48,6 +48,6 @@ describe("EmployeeForm", () => {
     expect(screen.getByLabelText("Mobile")).toHaveValue("9876543210");
     expect(screen.getByLabelText("State")).toHaveValue("Maharashtra");
     expect(screen.getByLabelText("District")).toHaveValue("Pune");
-    expect(screen.getByLabelText("Country")).toHaveTextContent("India");
+    expect(screen.getByDisplayValue("India")).toBeInTheDocument();
   });
 });

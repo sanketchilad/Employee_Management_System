@@ -53,14 +53,14 @@ return (
                   onClick={() => setSelectedEmployee(emp)}
                   className="nameCell"
                 >
-                  {emp.name}
+                  {emp.name ?? <span className="italicFallback">No Name Provided</span>}
                 </TableCell>
 
-                <TableCell>{emp.email}</TableCell>
+                <TableCell>{emp.email ?? <span className="italicFallback">No Email Provided</span>} </TableCell>
 
-                <TableCell>{emp.mobile}</TableCell>
+                <TableCell>{emp.mobile ?? <span className="italicFallback">No Mobile Number Provided</span>}</TableCell>
 
-                <TableCell>{emp.country}</TableCell>
+                <TableCell>{countries.find((c) => c.id === emp.country)?.country || emp.country}</TableCell>
 
                 <TableCell align="right">
                   <Box className="actionsBox">

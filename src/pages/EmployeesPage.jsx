@@ -47,6 +47,11 @@ const EmployeesPage = () => {
     dispatch(fetchCountries());
   }, [dispatch]);
 
+  useEffect(() => {
+    setPage(1);
+  }, [searchTerm]);
+
+
   const handleAddOrEdit = (data) => {
     if (editingEmployee) {
       dispatch(editEmployee({ id: editingEmployee.id, data }));
