@@ -20,6 +20,24 @@
   font-weight: 600;
 }
 
+.employeeCountBadge {
+  background-color: #003366;
+  color: #ffffff;
+  padding: 4px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  min-width: 40px;
+  text-align: center;
+  display: inline-block;
+}
+
+.employeeHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .addButton {
   border-radius: 10px;
   text-transform: none;

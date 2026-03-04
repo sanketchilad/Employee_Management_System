@@ -2,11 +2,11 @@ import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import EmployeeForm from "../components/EmployeeForm";
 import "@testing-library/jest-dom";
 import userEvent from "@testing-library/user-event";
+import { act } from "@testing-library/react";
 
 
 describe("EmployeeForm", () => {
-
-  test("submits valid form", async () => {
+  test("does not submit when empty", async () => {
     const onSubmit = jest.fn();
 
     render(
@@ -17,19 +17,11 @@ describe("EmployeeForm", () => {
       />
     );
 
-    fireEvent.change(screen.getByLabelText("Name"), { target: { value: "Sample" } });
-    fireEvent.change(screen.getByLabelText("Email"), { target: { value: "sample@test.com" } });
-    fireEvent.change(screen.getByLabelText("Mobile"), { target: { value: "1234567890" } });
-    fireEvent.change(screen.getByLabelText("State"), { target: { value: "Maharashtra" } });
-    fireEvent.change(screen.getByLabelText("District"), { target: { value: "Pune" } });
+    await act(async () => { await userEvent.click(screen.getByRole("button", { name: /create/i })); });
+    expect(onSubmit).not.toHaveBeenCalled();
 
-    await userEvent.click(screen.getByLabelText("Country"));
-    await userEvent.click(screen.getByRole("option", { name: "India" }));
-    fireEvent.click(screen.getByText("Create"));
-
-    await waitFor(() => {
-      expect(onSubmit).toHaveBeenCalled();
-    });
+    expect(await screen.findByText("Name is required"))
+      .toBeInTheDocument();
   });
 
 

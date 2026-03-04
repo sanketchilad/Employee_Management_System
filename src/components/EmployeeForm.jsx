@@ -152,7 +152,7 @@ const EmployeeForm = ({ onSubmit, employee, countries }) => {
             />
 
           {/* Submit Button */}
-          <Grid item xs={12}>
+          <Grid size={12}>
             <Button type="submit" variant="contained" color="primary">
               {employee ? 'Update' : 'Create'}
             </Button>

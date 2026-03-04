@@ -6,13 +6,6 @@ jest.mock("../pages/EmployeeDetailPage", () => () => (
   <div>EmployeeDetailPage Component</div>
 ));
 
-beforeAll(() => {
-  jest.spyOn(console, 'error').mockImplementation(() => {});
-});
-
-afterAll(() => {
-  console.error.mockRestore();
-});
 
 
 describe("EmployeeList", () => {

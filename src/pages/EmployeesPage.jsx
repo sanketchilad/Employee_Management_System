@@ -88,9 +88,15 @@ const EmployeesPage = () => {
       <Box className="employeesPage">
         {/* Header */}
         <Box className="pageHeader">
-          <Typography variant="h5" className="pageTitle">
-            Employees
-          </Typography>
+          <Box className= "employeeHeader">
+            <Box className="employeeCountBadge">
+              {filteredEmployees.length}
+            </Box>
+
+            <Typography variant="h5" className="pageTitle">   
+                Employees
+            </Typography> 
+          </Box>
 
           <Box className="headerRight">
             <SearchBar

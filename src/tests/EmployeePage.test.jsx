@@ -61,13 +61,6 @@ jest.mock("../components/Pagination", () => () => (
   <div>Pagination Component</div>
 ));
 
-beforeAll(() => {
-  jest.spyOn(console, 'error').mockImplementation(() => {});
-});
-
-afterAll(() => {
-  console.error.mockRestore();
-});
 
 describe("EmployeesPage", () => {
   const mockDispatch = jest.fn();
