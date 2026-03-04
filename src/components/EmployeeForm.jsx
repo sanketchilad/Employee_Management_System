@@ -58,7 +58,10 @@ const EmployeeForm = ({ onSubmit, employee, countries }) => {
               control={control}
               rules={{
                 required: 'Email is required',
-                pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: 'Invalid email' },
+                pattern: { 
+                  value: /^[^\s@]+@[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)+$/, 
+                  message: 'Invalid email' 
+                }
               }}
               render={({ field }) => (
                 <TextField

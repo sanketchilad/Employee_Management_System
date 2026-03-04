@@ -20,14 +20,20 @@ import {
   Typography,
   IconButton,
   Paper,
+  useTheme,
+  useMediaQuery,
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import '../scss/EmployeePage.scss';
+import { toast } from "react-toastify";
 
 const EmployeesPage = () => {
   const dispatch = useDispatch();
   const { list: employees, loading } = useSelector((state) => state.employees);
   const { list: countries } = useSelector((state) => state.countries);
+
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   const [searchTerm, setSearchTerm] = useState('');
   const [page, setPage] = useState(1);
@@ -44,8 +50,10 @@ const EmployeesPage = () => {
   const handleAddOrEdit = (data) => {
     if (editingEmployee) {
       dispatch(editEmployee({ id: editingEmployee.id, data }));
+      toast.success("Employee updated successfully!");
     } else {
       dispatch(addEmployee(data));
+      toast.success("Employee created successfully!");
     }
     setOpenModal(false);
     setEditingEmployee(null);
@@ -61,6 +69,7 @@ const EmployeesPage = () => {
       dispatch(removeEmployee(selectedId));
       setOpenDeleteDialog(false);
       setSelectedId(null);
+      toast.error("Employee deleted successfully!");
     };
 
     const handleCloseDelete = () => {
@@ -97,7 +106,7 @@ const EmployeesPage = () => {
                 setOpenModal(true);
               }}
             >
-              Add Employee
+              {isMobile ? "Add" : "Add Employee"}
             </Button>
           </Box>
         </Box>
@@ -141,6 +150,7 @@ const EmployeesPage = () => {
               </Typography>
 
               <IconButton
+                aria-label="close"
                 onClick={() => setOpenModal(false)}
                 size="small"
                 className="closeButton"

@@ -7,7 +7,6 @@ export default function SearchBar({  searchTerm, setSearchTerm }) {
       placeholder="Search by ID or Name"
       value={searchTerm}
       onChange={(e) => setSearchTerm(e.target.value)}
-      sx={{ width: 280 }}
     />
   );
 }
