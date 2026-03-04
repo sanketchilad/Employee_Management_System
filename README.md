@@ -19,7 +19,7 @@ Run tests:
 ### `npm test`
 
 Run with coverage: 
-### `npm test – –coverage`
+### `npm test -- --coverage`
 
 
 
